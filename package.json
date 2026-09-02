@@ -13,6 +13,7 @@
     "@graphcms/rich-text-types": "^0.5.1",
     "graphql": "^16.14.2",
     "graphql-request": "^7.4.0",
+    "i18next": "^26.4.1",
     "next": "16.3.3",
     "next-auth": "^4.24.15",
     "react": "19.2.8",
