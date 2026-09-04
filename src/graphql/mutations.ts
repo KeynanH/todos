@@ -17,7 +17,7 @@ export const CREATE_TODO_MUTATION = `
     $userID: ID!
     $completed: Boolean!
     $description: String
-    $dueDate: Date
+    $dueDate: DateTime
   ) {
     createTodo(
       data: {
@@ -25,7 +25,7 @@ export const CREATE_TODO_MUTATION = `
         completed: $completed
         description: $description
         dueDate: $dueDate
-        authModel: { connect: { id: $userID } } # Connects directly to your Auth Model
+        authModel: { connect: { id: $userID } }
       }
     ) {
       id
