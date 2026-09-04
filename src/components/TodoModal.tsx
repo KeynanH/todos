@@ -41,7 +41,7 @@ export default function TodoModal({
           "
         >
           <div className="flex items-center justify-between mb-6">
-            <DialogTitle className="text-xl font-semibold">
+            <DialogTitle className="text-xl text-black font-semibold">
               {title}
             </DialogTitle>
 
