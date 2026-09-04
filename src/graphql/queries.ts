@@ -8,13 +8,13 @@ export const GET_USER_BY_EMAIL = `
   }
 `
 export const GET_USER_TODOS_QUERY = `
-  query GetUserTodos($userId: ID!) {
-    todos(where: { user: {id: $userID} }) {
+  query GetUserTodos($userID: ID!) {
+    todos(where: { authModel: { id: $userID } }) {
       id
       title
       completed
       description
-      duedate
+      dueDate
     }
   }
 `;
