@@ -1,0 +1,20 @@
+src/components/header.tsx
+  h_bc15c6521c5158 8
+src/components/TodoDashboard.tsx
+  h_bc15c6521c5158 33,35-36,38,58
+package-lock.json
+  h_bc15c6521c5158 11-13,532-535,537-538,541-554,557,561-563,566-568
+package.json
+  h_bc15c6521c5158 12-14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.1",
+  "base_commit_sha": "7a049c28b0f41e9baa1823fcf4f00c51626cbf86",
+  "prompts": {},
+  "humans": {
+    "h_bc15c6521c5158": {
+      "author": "keynanhemmings <96178536+keynanhemmings@users.noreply.github.com>"
+    }
+  }
+}
