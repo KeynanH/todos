@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@fullcalendar/react": "^7.0.2",
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
     "@graphcms/rich-text-react-renderer": "^0.6.2",
     "@graphcms/rich-text-types": "^0.5.1",
     "@headlessui/react": "^2.2.10",

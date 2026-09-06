@@ -5,7 +5,7 @@ export default function Header(){
     return(
             <div className="flex flex-row py-6 px-4 w-full items-center justify-between bg-white text-black">
                 <div>
-                    <h1 className="text-xl">TODOs App</h1>
+                    <h1 className="text-3xl">TODOs App</h1>
                 </div>
                 <div>
                     <button

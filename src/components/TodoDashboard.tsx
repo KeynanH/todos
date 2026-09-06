@@ -3,8 +3,6 @@
 import { useState } from "react";
 import TodoCalendar from "./TodoCalendar";
 import TodoList from "./TodoList";
-import { Todo } from "@/types/todo";
-import { signOut } from "next-auth/react";
 import TodoModal from "./TodoModal";
 import TodoForm from "./TodoForm";
 import { useRouter } from "next/navigation";
@@ -32,12 +30,12 @@ export default function TodoDashboard({session}: {session: any}){
         router.refresh(); 
     };
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-gray-200 font-sans text-black">  
+    <div className="flex flex-col flex-1 items-center justify-center bg-gray-200 dark:bg-gray-900 font-sans text-black">  
       <Header /> 
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-gray-200 sm:items-start">
-        <div>
+      <main className="flex flex-1 w-full flex-col items-center justify-between p-16 bg-gray-200 sm:items-start">
+        <div className="py-4 flex flex-col items-center justify-center">
             <button
-                className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 transition-colors"    
+                className="rounded-md bg-black items-center text-center w-3xl px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 transition-colors"    
                 onClick={() => setIsOpen(true)}>
                     Add todo
             </button>
@@ -57,7 +55,7 @@ export default function TodoDashboard({session}: {session: any}){
             /* 4. Display Content Layout passing live tasks to components */
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
                 <TodoList tasks={tasks} />
-                <TodoCalendar /> 
+                <TodoCalendar tasks={tasks}/> 
             </div>
         )}
       </main>
