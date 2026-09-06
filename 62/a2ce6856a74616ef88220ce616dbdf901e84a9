@@ -1,0 +1,24 @@
+src/i18n.ts
+  h_bc15c6521c5158 1-27
+src/locales/de.json
+  h_bc15c6521c5158 1-14
+src/locales/en.json
+  h_bc15c6521c5158 1-14
+src/middleware.ts
+  h_bc15c6521c5158 1-23
+package-lock.json
+  h_bc15c6521c5158 20,26,4520-4528,4530-4532,6298-6324
+package.json
+  h_bc15c6521c5158 21,27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "62a2ce6856a74616ef88220ce616dbdf901e84a9",
+  "prompts": {},
+  "humans": {
+    "h_bc15c6521c5158": {
+      "author": "keynanhemmings <96178536+keynanhemmings@users.noreply.github.com>"
+    }
+  }
+}
