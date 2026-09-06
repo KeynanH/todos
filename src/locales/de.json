@@ -1,0 +1,14 @@
+{
+    "todosapp":"TODOs App",
+    "signout":"Sign Out",
+    "addtodo":"Add Todo",
+    "title":"Title",
+    "description":"Description",
+    "duedate":"Due Date",
+    "completed":"Completed",
+    "createtodo":"Create Todo",
+    "saving":"Saving...",
+    "savechanges":"Save Changes",
+    "signin": "Sign in to your account"
+    
+}
