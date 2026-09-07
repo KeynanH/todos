@@ -4,6 +4,7 @@ import '@/i18n'
 import { signOut } from "next-auth/react";
 import { use, useEffect } from "react"
 import { useTranslation } from 'react-i18next';
+import LocaleToggle from './localetoggle';
 
 interface HeaderProps {
     lng: string
@@ -23,6 +24,10 @@ export default function Header({lng} : HeaderProps){
             <div className="flex flex-row py-6 px-4 w-full items-center justify-between bg-white text-black">
                 <div>
                     <h1 className="text-3xl">{t('todosapp')}</h1>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <LocaleToggle currentLng={lng} />
                 </div>
                 <div>
                     <button

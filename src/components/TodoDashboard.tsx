@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 import { useTodos } from "@/hooks/useTodos";
 import Header from "./header";
 import { useTranslation } from 'react-i18next';
-import LocaleToggle from './localetoggle';
 
 interface TodoDashboardProps {
     session: any
@@ -63,9 +62,7 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
             >
                 <TodoForm  onSubmit={handleTodoSubmit} lng={lng} />
             </TodoModal>
-            <div className="flex items-center gap-4">
-                <LocaleToggle currentLng={lng} />
-            </div>
+
         </div>
         {isLoading ? (
             <div className="flex flex-col item-center justify-center text-center py-12 text-gray-600 font-medium">
