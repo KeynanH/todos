@@ -1,0 +1,21 @@
+src/app/[lng]/login/page.tsx
+  h_bc15c6521c5158 1-104
+src/locales/en.json
+  h_bc15c6521c5158 12-22
+src/locales/de.json
+  h_bc15c6521c5158 12-22
+src/app/[lng]/register/page.tsx
+  h_bc15c6521c5158 3,5-6,8-9,11-13,18-21,23-27,46,48-51,53-56,58-59,61,63-66,70,77-78,87,92-93,102,109,111
+  h_bc15c6521c5158 15-17,29-32,34-39,41,43-44,52,57,62,116
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "1485591eda581e2482dafc15fe9c61587249142e",
+  "prompts": {},
+  "humans": {
+    "h_bc15c6521c5158": {
+      "author": "keynanhemmings <96178536+keynanhemmings@users.noreply.github.com>"
+    }
+  }
+}
