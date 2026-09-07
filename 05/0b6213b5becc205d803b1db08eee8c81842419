@@ -1,0 +1,17 @@
+src/components/TodoDashboard.tsx
+  h_bc15c6521c5158 65
+src/components/header.tsx
+  h_bc15c6521c5158 7,28-30
+  h_bc15c6521c5158 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "050b6213b5becc205d803b1db08eee8c81842419",
+  "prompts": {},
+  "humans": {
+    "h_bc15c6521c5158": {
+      "author": "keynanhemmings <96178536+keynanhemmings@users.noreply.github.com>"
+    }
+  }
+}
