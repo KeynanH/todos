@@ -1,0 +1,17 @@
+src/app/[lng]/page.tsx
+  h_bc15c6521c5158 23-24
+  h_bc15c6521c5158 16
+src/components/header.tsx
+  h_bc15c6521c5158 32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "11c30833084ba12ad1ce7b602258fd58c15b1c58",
+  "prompts": {},
+  "humans": {
+    "h_bc15c6521c5158": {
+      "author": "keynanhemmings <96178536+keynanhemmings@users.noreply.github.com>"
+    }
+  }
+}
