@@ -13,7 +13,7 @@ const hygraphClient = new GraphQLClient(process.env.HYGRAPH_API_ENDPOINT!, {
   headers: { Authorization: `Bearer ${process.env.HYGRAPH_API_TOKEN}` },
 });
 
-// 1. GET: Fetch all todos belonging to logged-in user
+// 1. GET: Fetch all todos 
 export async function GET() {
   try {
     const session = await getServerSession(authOptions);
@@ -32,7 +32,7 @@ export async function GET() {
   }
 }
 
-// 2. POST: Create a fresh todo item
+// 2. POST: Create Todo
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions);
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
   }
 }
 
-// 3. PUT: Toggle task completion status
+// 3. PUT: update Todo
 export async function PUT(req: Request) {
   try {
     const session = await getServerSession(authOptions);
@@ -79,7 +79,7 @@ export async function PUT(req: Request) {
   }
 }
 
-// 4. DELETE: Wipe out a todo item completely
+// 4. DELETE Todo
 export async function DELETE(req: Request) {
   try {
     const session = await getServerSession(authOptions);
