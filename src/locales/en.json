@@ -9,6 +9,16 @@
     "createtodo":"Create Todo",
     "saving":"Saving...",
     "savechanges":"Save Changes",
-    "signin": "Sign in to your account"
+    "signintitle": "Sign in to your account",
+    "loginerror": "Invalid email or password.",
+    "email": "Email address",
+    "password": "Password",
+    "signin": "Sign in",
+    "donthaveaccount": "Don't have an account?",
+    "registerhere": "Register Here",
+    "createaccount": "Create a new account",
+    "failedconnection": "Failed to connect to the server.",
+    "register":"Register",
+    "registering": "Registering & Logging in..."
     
 }
