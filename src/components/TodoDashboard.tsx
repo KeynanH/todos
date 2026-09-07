@@ -8,7 +8,6 @@ import TodoModal from "./TodoModal";
 import TodoForm from "./TodoForm";
 import { useRouter } from "next/navigation";
 import { useTodos } from "@/hooks/useTodos";
-import Header from "./header";
 import { useTranslation } from 'react-i18next';
 
 interface TodoDashboardProps {
@@ -48,7 +47,6 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
     };
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-gray-200 dark:bg-gray-900 font-sans text-black">  
-      <Header  lng={lng}/> 
       <main className="flex flex-1 w-full flex-col items-center justify-between p-16 bg-gray-200 sm:items-start">
         <div className="py-4 flex flex-col items-center justify-center">
             <button

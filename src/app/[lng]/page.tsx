@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import TodoDashboard from "@/components/TodoDashboard";
+import Header from "@/components/header";
 
 
 interface HomeProps {
@@ -20,6 +21,8 @@ export default async function Home({params}: HomeProps) {
     redirect("/login");
   }
   
-  return <TodoDashboard session={session} lng={lng} />
+  return <>
+  <TodoDashboard session={session} lng={lng} />
+  </>
 
 }

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../styles/globals.css"
 import { languages } from "@/i18n";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/lib/auth";
+import Header from "@/components/header";
 
 
 const geistSans = Geist({
@@ -27,6 +30,8 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 const {lng} = await params
 
 const locale = languages.includes(lng) ? lng : 'en'
+  const session = await getServerSession(authOptions)
+
 
   return (
     <html
@@ -34,6 +39,7 @@ const locale = languages.includes(lng) ? lng : 'en'
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+          <Header lng={lng} session={session} />
         {children}
       </body>
     </html>

@@ -8,11 +8,13 @@ import LocaleToggle from './localetoggle';
 
 interface HeaderProps {
     lng: string
+    session: any
 }
 
-export default function Header({lng} : HeaderProps){
+export default function Header({lng, session} : HeaderProps){
     
     const {t, i18n} = useTranslation()
+    const isLoggedIn = !!session?.user
 
     useEffect(() => {
         if(lng && i18n.language !== lng){
@@ -29,14 +31,14 @@ export default function Header({lng} : HeaderProps){
                 <div className="flex items-center gap-4">
                     <LocaleToggle currentLng={lng} />
                 </div>
-                <div>
+              {isLoggedIn &&  <div>
                     <button
                     onClick={() => signOut({ callbackUrl: "/login" })}
                     className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 transition-colors"
                     >
                     {t("signout")}
                     </button>
-                </div>
+                </div>}
             </div>
     )
 }
