@@ -1,11 +1,28 @@
 'use client'
-import { signOut } from "next-auth/react";
 
-export default function Header(){
+import '@/i18n'
+import { signOut } from "next-auth/react";
+import { use, useEffect } from "react"
+import { useTranslation } from 'react-i18next';
+
+interface HeaderProps {
+    lng: string
+}
+
+export default function Header({lng} : HeaderProps){
+    
+    const {t, i18n} = useTranslation()
+
+    useEffect(() => {
+        if(lng && i18n.language !== lng){
+        i18n.changeLanguage(lng)
+        }
+    },[lng, i18n])
+
     return(
             <div className="flex flex-row py-6 px-4 w-full items-center justify-between bg-white text-black">
                 <div>
-                    <h1 className="text-3xl">TODOs App</h1>
+                    <h1 className="text-3xl">{t('todosapp')}</h1>
                 </div>
                 <div>
                     <button

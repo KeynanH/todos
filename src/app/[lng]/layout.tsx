@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../../styles/globals.css"
-import en from '../../locales/en.json'
-import de from '../../locales/de.json'
+import { languages } from "@/i18n";
 
-const translations: Record<string, typeof en> = {en, de}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +26,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children, params }: LayoutProps) {
 const {lng} = await params
 
-const locale = translations[lng] ? lng : 'en'
+const locale = languages.includes(lng) ? lng : 'en'
 
   return (
     <html
