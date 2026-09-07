@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todo Application
+
+A responsive Todo application built with **Next.js**, **React**, **TypeScript**, **Node.js**, and **Hygraph CMS**.
+
+The application allows authenticated users to manage their personal todos through a modern interface, including a calendar view for tracking upcoming tasks.
+
+## Features
+
+- User authentication
+- Create, read, update, and delete todos
+- Personal todo lists per user
+- Calendar view of all todos
+- Responsive design for desktop and mobile devices
+- GraphQL integration with Hygraph CMS
+- Localisation-ready architecture
+- Accessible modal forms using Headless UI
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Node.js v16.x
+- Hygraph CMS
+- GraphQL
+- NextAuth
+- Tailwind CSS
+- Headless UI
+- FullCalendar
+
+## Project Structure
+
+```text
+src/
+├── app/
+├── components/
+├── graphql/
+├── hooks/
+├── lib/
+├── services/
+├── types/
+├── utils/
+└── styles/
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js v16.x
+- npm or yarn
+- Hygraph project
+- Authentication provider credentials (GitHub, Google, etc.)
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd todo-app
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a local environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+Add the required environment variables:
+
+```env
+NEXTAUTH_URL=
+NEXTAUTH_SECRET=
+
+HYGRAPH_ENDPOINT=
+HYGRAPH_TOKEN=
+
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Hygraph Models
 
-## Learn More
+### User
 
-To learn more about Next.js, take a look at the following resources:
+| Field | Type |
+|---------|---------|
+| name | String |
+| email | String |
+| todos | Relation |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Todo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Field | Type |
+|---------|---------|
+| title | String |
+| description | String |
+| dueDate | DateTime |
+| completed | Boolean |
+| user | Relation |
 
-## Deploy on Vercel
+Relationship:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```text
+User (1) → (Many) Todo
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Localisation
+
+The application has been for with localisation:
+
+- UI text is externalised into translation files
+- Dates are stored in UTC
+- Dates are displayed using the user's locale
+- Calendar supports locale-specific formatting
+- Additional languages can be added with minimal configuration
