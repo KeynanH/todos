@@ -55,7 +55,10 @@ export const UPDATE_TODO_MUTATION = `
 
 export const DELETE_TODO_MUTATION = `
   mutation DeleteTodo($id: ID!) {
-    deleteTodo(where: { id: $id }) {
+    unpublishTodo(where: { id: $id }, from: [PUBLISHED]) {
+      id
+    }
+    deleteTodo(where: {id: $id}) {
       id
     }
   }

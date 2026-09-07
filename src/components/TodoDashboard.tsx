@@ -21,7 +21,7 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
     const [isOpen, setIsOpen] = useState(false)
     const router = useRouter()
 
-    const {tasks, isLoading, refreshTodos } = useTodos();
+    const {tasks, isLoading, refreshTodos, toggleTodoStatus, removeTodo } = useTodos();
 
     const {t, i18n} = useTranslation()
 
@@ -43,7 +43,7 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
         throw new Error(errData.error || "Failed to create task");
         }
 
-        router.refresh(); 
+        await refreshTodos()
     };
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-gray-200 dark:bg-gray-900 font-sans text-black">  
@@ -70,7 +70,11 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
             </div>
         ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
-                <TodoList tasks={tasks} lng={lng} />
+                <TodoList           
+                    onToggleStatus={toggleTodoStatus}
+                    onDelete={removeTodo} 
+                    tasks={tasks}
+                    lng={lng} />
                 <TodoCalendar tasks={tasks} lng={lng}/> 
             </div>
         )}

@@ -10,10 +10,10 @@ import { useEffect } from 'react';
 interface TodoListProps {
   tasks: Todo[];
   lng: string
-}
+  onToggleStatus: (id: string, currentStatus: boolean) => Promise<void>;
+  onDelete: (id: string) => Promise<void>;}
 
-export default function TodoList({ tasks, lng }: TodoListProps) {
-  const { toggleTodoStatus, removeTodo } = useTodos();
+export default function TodoList({ tasks, lng, onToggleStatus, onDelete }: TodoListProps) {
 
    const {t, i18n} = useTranslation()
   
@@ -37,8 +37,8 @@ export default function TodoList({ tasks, lng }: TodoListProps) {
         <TodoCard
           key={item.id}
           task={item}
-          onToggleStatus={toggleTodoStatus}
-          onDelete={removeTodo}
+          onToggleStatus={onToggleStatus}
+          onDelete={onDelete}
           lng={lng}
         />
       ))}

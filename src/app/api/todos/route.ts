@@ -43,10 +43,20 @@ export async function POST(req: Request) {
     const { title, description, dueDate } = await req.json();
     if (!title) return NextResponse.json({ error: "Title required" }, { status: 400 });
 
+    let formattedDateTime = null
+
+    if(dueDate){
+      if(dueDate.includes("T")){
+        formattedDateTime = dueDate.length === 16 ? `${dueDate}:00Z` : dueDate.endsWith("Z") ? dueDate : `${dueDate}Z`
+      }else{
+        formattedDateTime = `${dueDate}T12:00:00.000Z`
+      }
+    }
+
     const data = await hygraphClient.request(CREATE_TODO_MUTATION, {
       title,
       description: description || "",
-      dueDate: dueDate || null,
+      dueDate: formattedDateTime,
       completed: false,
       userID: (session.user as any).id,
     });
