@@ -1,0 +1,15 @@
+src/locales/de.json
+  h_bc15c6521c5158 3-28
+  h_bc15c6521c5158 2,29
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "0cb6f5ffc51b278530b9a742558665f56b8659bd",
+  "prompts": {},
+  "humans": {
+    "h_bc15c6521c5158": {
+      "author": "keynanhemmings <96178536+keynanhemmings@users.noreply.github.com>"
+    }
+  }
+}
