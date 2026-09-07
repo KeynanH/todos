@@ -39,13 +39,12 @@ export const CREATE_TODO_MUTATION = `
 
 
 export const UPDATE_TODO_MUTATION = `
-  mutation UpdateTodo($id: ID!, $completed: Boolean!) {
+  mutation UpdateTodo($id: ID!, $completed: Boolean, $title: String, $description: String, $dueDate: DateTime) {
     updateTodo(
       where: { id: $id }
-      data: { completed: $completed }
+      data: { completed: $completed, title: $title, description: $description, dueDate: $dueDate }
     ) {
       id  
-      completed
     }
     publishTodo(where: { id: $id }, to: [PUBLISHED]) {
       id

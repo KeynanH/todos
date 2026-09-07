@@ -22,6 +22,22 @@ export function useTodos() {
         }
     };
 
+    const editTodo = async (id: string, updatedData: Partial<Todo>) => {
+        setTasks(prev => prev.map(task => task.id === id ? {...task, ...updatedData}: task))
+
+        try {
+            const res = await fetch('/api/todos',{
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ id, updatedData})
+            })
+            if(!res.ok) throw new Error()
+        } catch (error) {
+            console.error(error)
+            await fetchTodos()
+        }
+    }
+
     const toggleTodoStatus = async (id: string, currentStatus: boolean) => {
         try {
             const res = await fetch('/api/todos', {
@@ -52,7 +68,8 @@ export function useTodos() {
 
     return { 
         tasks, 
-        isLoading, 
+        isLoading,
+        editTodo, 
         refreshTodos: fetchTodos, 
         toggleTodoStatus, 
         removeTodo 

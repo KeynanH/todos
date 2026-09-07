@@ -74,12 +74,20 @@ export async function PUT(req: Request) {
     const session = await getServerSession(authOptions);
     if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    const { id, completed } = await req.json();
+    const { id, completed, title, description, dueDate } = await req.json();
     if (!id) return NextResponse.json({ error: "ID required" }, { status: 400 });
+
+    let formattedDateTime = undefined
+    if(dueDate !== undefined){
+      formattedDateTime = dueDate ? (dueDate.length === 16 ? `${dueDate}:00Z`: dueDate) : null
+    }
 
     const data = await hygraphClient.request(UPDATE_TODO_MUTATION, {
       id,
       completed,
+      title,
+      description,
+      dueDate: formattedDateTime
     });
 
     return NextResponse.json({ success: true, data }, { status: 200 });

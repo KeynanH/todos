@@ -11,9 +11,10 @@ interface TodoListProps {
   tasks: Todo[];
   lng: string
   onToggleStatus: (id: string, currentStatus: boolean) => Promise<void>;
+  onEdit: (id: string, data: Partial<Todo>) => Promise<void>;
   onDelete: (id: string) => Promise<void>;}
 
-export default function TodoList({ tasks, lng, onToggleStatus, onDelete }: TodoListProps) {
+export default function TodoList({ tasks, lng, onToggleStatus, onDelete, onEdit }: TodoListProps) {
 
    const {t, i18n} = useTranslation()
   
@@ -38,6 +39,7 @@ export default function TodoList({ tasks, lng, onToggleStatus, onDelete }: TodoL
           key={item.id}
           task={item}
           onToggleStatus={onToggleStatus}
+          onEdit={onEdit}
           onDelete={onDelete}
           lng={lng}
         />

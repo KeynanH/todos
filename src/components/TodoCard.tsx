@@ -4,18 +4,31 @@ import '@/i18n'
 import { Todo } from "@/types/todo";
 import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
+import TodoModal from './TodoModal';
+import TodoForm from './TodoForm';
 
 interface TodoCardProps {
   task: Todo;
   onToggleStatus: (id: string, currentStatus: boolean) => Promise<void>;
   onDelete: (id: string) => Promise<void>;
+  onEdit: (id: string, data: Partial<Todo>) => Promise<void>;
   lng: string
 }
 
-export default function TodoCard({ task, onToggleStatus, onDelete, lng }: TodoCardProps) {
+export default function TodoCard({ task, onToggleStatus, onDelete, onEdit, lng }: TodoCardProps) {
   const [isDeleting, setIsDeleting] = useState(false);
-
+  const [isEditOpen, setIsEditOpen] = useState(false)
   const {t, i18n} = useTranslation()
+
+  const formatForInput = (isoString?: string | null) => {
+    if (!isoString) return "";
+    return isoString.substring(0, 16);
+  };
+
+  const handleEditSubmit = async (formData: any) => {
+    await onEdit(task.id, formData);
+    setIsEditOpen(false);
+  };
 
     useEffect(() => {
     if(lng && i18n.language !== lng){
@@ -70,6 +83,7 @@ export default function TodoCard({ task, onToggleStatus, onDelete, lng }: TodoCa
       <div className="flex items center gap-2 ml-4">
         <button 
           className="p-1.5 text-gray-400 hover:text-red-400"
+          onClick={() => setIsEditOpen(true)}
           title={t("edit")}
           >
           <svg xmlns="http://w3.org" height="16" width="16" viewBox="0 0 24 24" fill="currentColor">
@@ -93,6 +107,18 @@ export default function TodoCard({ task, onToggleStatus, onDelete, lng }: TodoCa
           )}
         </button>
       </div>
+      <TodoModal open={isEditOpen} onClose={() => setIsEditOpen(false)} title={t("edit")}>
+        <TodoForm
+          initialValues={{
+            title: task.title,
+            description: task.description || "",
+            dueDate: formatForInput(task.dueDate),
+            completed: task.completed
+          }}
+          onSubmit={handleEditSubmit}
+          lng={lng}
+        />
+      </TodoModal>
     </div>
   );
 }

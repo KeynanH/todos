@@ -21,7 +21,7 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
     const [isOpen, setIsOpen] = useState(false)
     const router = useRouter()
 
-    const {tasks, isLoading, refreshTodos, toggleTodoStatus, removeTodo } = useTodos();
+    const {tasks, isLoading, refreshTodos, toggleTodoStatus, removeTodo, editTodo } = useTodos();
 
     const {t, i18n} = useTranslation()
 
@@ -74,6 +74,7 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
                 <TodoList           
                     onToggleStatus={toggleTodoStatus}
                     onDelete={removeTodo} 
+                    onEdit={editTodo}
                     tasks={tasks}
                     lng={lng} />
                 <TodoCalendar tasks={tasks} lng={lng}/> 
