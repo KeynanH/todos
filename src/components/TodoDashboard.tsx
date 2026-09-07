@@ -44,6 +44,7 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
         }
 
         await refreshTodos()
+        setIsOpen(false)
     };
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-gray-200 dark:bg-gray-900 font-sans text-black">  
