@@ -1,23 +1,31 @@
+import '@/i18n'
 import { Todo, TodoFormData } from "@/types/todo"
+import { useEffect } from 'react'
 import { useForm } from "react-hook-form"
+import { useTranslation } from 'react-i18next'
 
 interface TodoFormProps {
     initialValues?: TodoFormData
     onSubmit: (data: TodoFormData) => Promise<void>
     loading?: boolean
+    lng: string
 }
 export default function TodoForm({
     initialValues,
     onSubmit,
-    loading
+    loading,
+    lng
 }: TodoFormProps){
 
+    const {t, i18n} = useTranslation()
 
-    const {
-        register,
-        handleSubmit,
-        formState: {errors}
-    } = useForm<TodoFormData>({
+    useEffect(() => {
+    if(lng && i18n.language !== lng){
+        i18n.changeLanguage(lng)
+    }
+    },[lng, i18n])
+
+    const { register, handleSubmit, formState: {errors}} = useForm<TodoFormData>({
         defaultValues: initialValues,
     })
     return(
@@ -27,7 +35,7 @@ export default function TodoForm({
         >
             <div>
                 <label className="block mb-1">
-                Title
+                {t("title")}
                 </label>
 
                 <input
@@ -46,7 +54,7 @@ export default function TodoForm({
 
             <div>
                 <label className="block mb-1">
-                Description
+                {t("description")}
                 </label>
 
                 <textarea
@@ -58,7 +66,7 @@ export default function TodoForm({
 
             <div>
                 <label className="block mb-1">
-                Due Date
+                {t("duedate")}
                 </label>
 
                 <input
@@ -75,7 +83,7 @@ export default function TodoForm({
                     type="checkbox"
                     {...register('completed')}
                     />
-                    Completed
+                    {t("completed")}
                 </label>
                 </div>
             )}
@@ -86,10 +94,10 @@ export default function TodoForm({
                 className="rounded bg-black px-4 py-2 text-white"
             >
                 {loading
-                ? 'Saving...'
+                ? t("saving")
                 : initialValues
-                ? 'Save Changes'
-                : 'Create Todo'}
+                ? t("savechanges")
+                : t("createtodo")}
             </button>
         </form>
     )
