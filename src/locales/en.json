@@ -19,6 +19,12 @@
     "createaccount": "Create a new account",
     "failedconnection": "Failed to connect to the server.",
     "register":"Register",
-    "registering": "Registering & Logging in..."
+    "registering": "Registering & Logging in...",
+    "loadingworkspace": "Loading your workspace...",
+    "notaskfound": "No tasks found. click \"Add todo\" to add some",
+    "areyousuredelete": "Are you sure you want to delete this task?",
+    "edit": "Edit task",
+    "due": "Due",
+    "delete": "Delete Task"
         
 }

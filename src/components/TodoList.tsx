@@ -1,19 +1,32 @@
 'use client'
+
+import '@/i18n'
 import { Todo } from "@/types/todo";
 import { useTodos } from "@/hooks/useTodos";
 import TodoCard from "./TodoCard";
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 interface TodoListProps {
   tasks: Todo[];
+  lng: string
 }
 
-export default function TodoList({ tasks }: TodoListProps) {
+export default function TodoList({ tasks, lng }: TodoListProps) {
   const { toggleTodoStatus, removeTodo } = useTodos();
+
+   const {t, i18n} = useTranslation()
+  
+      useEffect(() => {
+      if(lng && i18n.language !== lng){
+          i18n.changeLanguage(lng)
+      }
+      },[lng, i18n])
 
   if (tasks.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center p-8 text-center rounded-xl bg-gray-50 border border-dashed border-gray-300">
-        <p className="text-sm font-medium text-gray-500">No tasks found. click "Add todo" to add some</p>
+        <p className="text-sm font-medium text-gray-500">{t("notaskfound")}</p>
       </div>
     );
   }
@@ -26,6 +39,7 @@ export default function TodoList({ tasks }: TodoListProps) {
           task={item}
           onToggleStatus={toggleTodoStatus}
           onDelete={removeTodo}
+          lng={lng}
         />
       ))}
     </div>

@@ -69,7 +69,7 @@ export default function TodoDashboard({session, lng}: TodoDashboardProps){
             </div>
         ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
-                <TodoList tasks={tasks} />
+                <TodoList tasks={tasks} lng={lng} />
                 <TodoCalendar tasks={tasks}/> 
             </div>
         )}
